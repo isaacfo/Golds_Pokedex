@@ -91,6 +91,7 @@ h1 {
   color: white;
   border-radius: 3px;
   transition: transform 100ms;
+  outline: none;
 }
 
 button:hover {
@@ -98,3 +99,12 @@ button:hover {
   transform: translateY(-1px);
   box-shadow: 0px 1px 2px darkred;
 }
+
+/* .progress {
+  align-items: left;
+} */
+
+/* progress:after {
+  content: attr(value);
+  margin-top: 55px;
+} */
