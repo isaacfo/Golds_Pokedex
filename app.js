@@ -22,10 +22,13 @@ const displayPokemon = pokemon => {
     .map(
       pokeman =>
         `
-    <li class="card" onclick="selectPokemon(${pokeman.id})">
+    <li class="card" onclick="selectPokemon(${pokeman.id}); playSound()">
         <img class="card-image" src="${pokeman.image}"/>
         <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-        </a>
+        <audio 
+            id="audio" 
+            autostart="false" 
+            src="assets/PokemonGen1/Gen1Sounds/${pokeman.id}.wav"></audio>
     </li>
         `
     )
@@ -44,6 +47,11 @@ const selectPokemon = async id => {
     displayPokemanPopup(cachedPokemon[id]);
   }
 };
+
+function playSound() {
+  const sound = document.getElementById('audio');
+  sound.play();
+}
 
 const displayPokemanPopup = pokeman => {
   console.log(pokeman);
