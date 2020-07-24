@@ -1,5 +1,16 @@
 const pokedex = document.getElementById('pokedex');
-// const searchBar = document.getElementById('search-types');
+const searchBar = document.getElementById('searchBar');
+let pokemon = [];
+
+// lowercase was added cuz pokemon names in api are lowercase
+searchBar.addEventListener('keyup', e => {
+  const searchString = e.target.value.toLowerCase();
+
+  const filteredPokemon = pokemon.filter(mon => {
+    return mon.name.includes(searchString);
+  });
+  displayPokemon(filteredPokemon);
+});
 
 const cachedPokemon = {};
 
@@ -7,13 +18,14 @@ const fetchPokemon = async () => {
   const url = `https://pokeapi.co/api/v2/pokemon?limit=251`;
   const res = await fetch(url);
   const data = await res.json();
-  const pokemon = data.results.map((data, index) => ({
+  pokemon = data.results.map((data, index) => ({
     name: data.name,
     id: index + 1,
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index +
       1}.png`
   }));
-
+  console.log(data);
+  console.log(pokemon);
   displayPokemon(pokemon);
 };
 
@@ -47,7 +59,7 @@ const selectPokemon = async id => {
     displayPokemanPopup(cachedPokemon[id]);
   }
 };
-
+// pokemon cry function in the works currently
 function playSound() {
   const sound = document.getElementById('audio');
   sound.play();
