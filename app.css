@@ -1,8 +1,8 @@
 body {
   background-color: orangered;
   margin: 0;
-  font-family: 'rubik';
-  color: white;
+  font-family: 'Permanent Marker';
+  /* color: white; */
 }
 
 .card {
@@ -66,6 +66,7 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   font-size: 54px;
+  color: black;
 }
 
 .popup {
@@ -92,6 +93,7 @@ h1 {
   border-radius: 3px;
   transition: transform 100ms;
   outline: none;
+  /* font-family: 'Permanent Marker'; */
 }
 
 button:hover {
