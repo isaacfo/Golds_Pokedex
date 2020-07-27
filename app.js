@@ -1,5 +1,37 @@
 const pokedex = document.getElementById('pokedex');
 const searchBar = document.getElementById('searchBar');
+const searchBtn = document.getElementById('search-btn');
+const tip = document.getElementById('tip');
+
+var i = 0;
+var message = 'Search for a pokemon';
+var speed = 100;
+
+// setting search bar styles
+searchBtn.addEventListener('click', () => {
+  searchBar.style.width = '60%';
+  searchBar.style.paddingLeft = '60px';
+  searchBar.style.cursor = 'text';
+  // to not have to click on searchbar again to type
+  searchBar.focus();
+
+  typeWriter();
+});
+
+searchBar.addEventListener('keydown', () => {
+  tip.style.visibility = 'visible';
+  tip.style.opacity = 1;
+});
+
+function typeWriter() {
+  if (i < message.length) {
+    msg = searchBar.getAttribute('placeholder') + message.charAt(i);
+    searchBar.setAttribute('placeholder', msg);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
 let pokemon = [];
 
 // lowercase was added cuz pokemon names in api are lowercase
