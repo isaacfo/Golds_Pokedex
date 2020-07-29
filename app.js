@@ -56,8 +56,8 @@ const fetchPokemon = async () => {
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index +
       1}.png`
   }));
-  console.log(data);
-  console.log(pokemon);
+  // console.log(data);
+  // console.log(pokemon);
   displayPokemon(pokemon);
 };
 
@@ -66,14 +66,10 @@ const displayPokemon = pokemon => {
     .map(
       pokeman =>
         `
-    <li class="card" onclick="selectPokemon(${pokeman.id}); ">
+    <li class="card" onclick="selectPokemon(${pokeman.id}) ">
         <img class="card-image" src="${pokeman.image}"/>
         <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-        <audio 
-            id="audio" 
-            autostart="false" 
-            src="assets/PokemonGen1/Gen1Sounds/${pokeman.id}.wav"></audio>
-    </li>
+       
         `
     )
     .join('');
@@ -93,7 +89,7 @@ const selectPokemon = async id => {
 };
 // pokemon cry function in the works currently
 function playSound() {
-  const sound = document.getElementById('audio');
+  let sound = document.getElementById('audio');
   sound.play();
 }
 
@@ -115,6 +111,12 @@ const displayPokemanPopup = pokeman => {
                 <img class="card-image" src="${pokeman.sprites['front_shiny']}"/>
                 <h2 class="card-title">${pokeman.name}</h2>
                 <p>Type: ${type} | Height: ${pokeman.height} | Weight: ${pokeman.weight} | Abilities: ${ability}</p>
+                 <audio
+            id="audio"
+            autostart="false"
+            src="assets/PokemonGen1/Gen1Sounds/${pokeman.id}.wav"></audio>
+    </li>
+                <a onclick="playSound()">Click here for pokemon sound</a>
                 <div class= "stats">Base Stats:<br>
                 HP: <progress value=${statHp} max="200">45</progress> <br>
                 Attack: <progress value=${statAttack} max="200"> </progress> <br> 

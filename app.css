@@ -82,6 +82,11 @@ h1 {
   align-items: center;
 }
 
+/* for pokemon cry sound */
+a {
+  color: red;
+}
+
 #closeBtn {
   position: absolute;
   top: 20px;
