@@ -87,6 +87,17 @@ a {
   color: red;
 }
 
+.soundBtn {
+  background-color: orangered;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  transition: transform 100ms;
+  outline: none;
+  font-family: 'Permanent Marker';
+}
+
 #closeBtn {
   position: absolute;
   top: 20px;

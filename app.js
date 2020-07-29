@@ -116,7 +116,7 @@ const displayPokemanPopup = pokeman => {
             autostart="false"
             src="assets/PokemonGen1/Gen1Sounds/${pokeman.id}.wav"></audio>
     </li>
-                <a onclick="playSound()">Click here for pokemon sound</a>
+                <button class="soundBtn" onclick="playSound()">Click here for pokemon sound</button>
                 <div class= "stats">Base Stats:<br>
                 HP: <progress value=${statHp} max="200">45</progress> <br>
                 Attack: <progress value=${statAttack} max="200"> </progress> <br> 
